@@ -1,4 +1,4 @@
-package one.digitalinnovation.experts.productcatalog.config;
+package digitalinnovation.one.experts.productcatalog.config;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +12,7 @@ import org.springframework.data.elasticsearch.core.EntityMapper;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories("basePackageClasses = one.digitalinnovation.experts.productcatalog.repository")
+@EnableElasticsearchRepositories(basePackages = "digitalinnovation.one.experts.productcatalog.repository")
 public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
     @Override
@@ -26,9 +26,10 @@ public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
     @Bean
     @Override
     public EntityMapper entityMapper() {
-        ElasticsearchEntityMapper entityMapper = new ElasticsearchEntityMapper(elasticsearchMappingContext(), new DefaultConversionService());
+        ElasticsearchEntityMapper entityMapper = new ElasticsearchEntityMapper(elasticsearchMappingContext(),
+                new DefaultConversionService());
         entityMapper.setConversions(elasticsearchCustomConversions());
+
         return entityMapper;
     }
-
 }

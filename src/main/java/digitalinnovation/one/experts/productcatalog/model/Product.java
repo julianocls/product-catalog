@@ -1,4 +1,4 @@
-package one.digitalinnovation.experts.productcatalog.model;
+package digitalinnovation.one.experts.productcatalog.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -7,15 +7,15 @@ import org.springframework.data.elasticsearch.annotations.Document;
 public class Product {
 
     @Id
-    private Long id;
+    private Integer id;
     private String name;
     private Integer amount;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
